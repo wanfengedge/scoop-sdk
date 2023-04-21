@@ -50,7 +50,7 @@ scoop install git
 ### 步骤 3：添加本仓库并更新
 
 ```powershell
-scoop bucket add scoopet https://github.com/wanfengedge/scoop-sdk
+scoop bucket add scoop-sdk https://github.com/wanfengedge/scoop-sdk
 scoop update
 ```
 
