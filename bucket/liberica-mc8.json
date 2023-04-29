@@ -1,37 +1,29 @@
 {
-    "description": "JDK Mission Control",
-    "homepage": "https://openjdk.java.net/projects/jmc/",
-    "version": "8.3.0-05",
+    "version": "8.3.0",
+    "description": "Liberica Mission Control",
+    "homepage": "https://bell-sw.com/lmc/",
     "license": "UPL-1.0",
     "architecture": {
         "64bit": {
-            "url": "https://download.java.net/java/GA/jmc8/05/binaries/jmc-8.3.0_windows-x64.zip",
-            "hash": "03a1e87423e04a7b87d39b298796181109595d93c4d735a28640f3fd2debf016"
+            "url": "https://download.bell-sw.com/lmc/8.3.0/bellsoft-lmc8.3.0-windows-amd64.zip",
+            "hash": "e75484aec26f468155ed6e64055a79829c39e67eb2719a5052011110de4e5b75"
         }
     },
-    "extract_dir": "jmc-8.3.0_windows-x64\\JDK Mission Control",
+    "extract_dir": "lmc8.3.0\\Liberica Mission Control",
     "shortcuts": [
         [
             "jmc.exe",
-            "JDK Mission Control"
+            "Liberica Mission Control"
         ]
     ],
     "persist": "configuration",
-    "checkver": {
-        "url": "https://jdk.java.net/jmc/8/",
-        "re": "/(?<type>early_access|GA)/(?<path>jmc(?<major>[\\d.]+)(?:.*)?/(?<build>[\\d]+)(?:/GPL|/binaries|/UPL)?)/(?<file>jmc-(?<version>[\\d.]+)(?<ea>-ea)?(?:\\+[\\d]+)?_windows-x64(?:_bin)?\\.(?:zip|tar.gz))",
-        "replace": "${version}-${build}${ea}"
-    },
+    "checkver": "bellsoft-lmc([\\d.]+)-windows-amd64.zip",
     "autoupdate": {
         "architecture": {
             "64bit": {
-                "url": "https://download.java.net/java/$matchType/$matchPath/$matchFile"
+                "url": "https://download.bell-sw.com/lmc/$version/bellsoft-lmc$version-windows-amd64.zip"
             }
         },
-        "hash": {
-            "url": "$url.sha256",
-            "find": "$sha256\\s"
-        },
-        "extract_dir": "jmc-$matchVersion_windows-x64\\JDK Mission Control"
+        "extract_dir": "lmc$version\\Liberica Mission Control"
     }
 }
