@@ -33,6 +33,7 @@ irm get.scoop.sh -outfile 'install.ps1'
 
 ```powershell
 scoop install aria2
+scoop install gow
 ```
 
 如果使用 VPN，需要通过如下命令关闭 aria2
