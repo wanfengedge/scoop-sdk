@@ -90,6 +90,12 @@ games
 jetbrains
 ```
 
+```powershell
+https://github.com/ScoopInstaller/Main
+https://github.com/ScoopInstaller/Versions
+https://github.com/ScoopInstaller/Java
+```
+
 ## 其他
 
 ### Aria2 的参数自定义
