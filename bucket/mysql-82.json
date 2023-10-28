@@ -1,7 +1,7 @@
 {
-    "version": "8.0.35",
-    "description": "The world's most popular open-source database, supported by an active community. (Long Term Support)",
-    "homepage": "https://dev.mysql.com/downloads/mysql/8.0.html",
+    "version": "8.2.0",
+    "description": "The world's most popular open-source database, supported by an active community.",
+    "homepage": "https://dev.mysql.com/downloads/mysql/",
     "license": "GPL-2.0-only",
     "notes": [
         "Run 'mysqld --standalone' or 'mysqld --console' to start the Database,",
@@ -16,9 +16,9 @@
     },
     "architecture": {
         "64bit": {
-            "url": "https://dev.mysql.com/get/Downloads/MySQL-8.0/mysql-8.0.35-winx64.zip",
-            "hash": "md5:d8ca9adf94ca997f5ee63789cca51ccf",
-            "extract_dir": "mysql-8.0.35-winx64"
+            "url": "https://dev.mysql.com/get/Downloads/MySQL-8.2/mysql-8.2.0-winx64.zip",
+            "hash": "md5:e0b9ac00cf136a40020e579a33d080db",
+            "extract_dir": "mysql-8.2.0-winx64"
         }
     },
     "pre_install": [
@@ -75,7 +75,7 @@
             "64bit": {
                 "url": "https://dev.mysql.com/get/Downloads/MySQL-$majorVersion.$minorVersion/mysql-$version-winx64.zip",
                 "hash": {
-                    "url": "https://dev.mysql.com/downloads/mysql/8.0.html",
+                    "url": "https://dev.mysql.com/downloads/mysql/",
                     "regex": "md5\">$md5"
                 },
                 "extract_dir": "mysql-$version-winx64"
