@@ -92,6 +92,7 @@ jetbrains
 
 ```powershell
 https://github.com/ScoopInstaller/Main
+https://github.com/ScoopInstaller/Extras
 https://github.com/ScoopInstaller/Versions
 https://github.com/ScoopInstaller/Java
 ```
