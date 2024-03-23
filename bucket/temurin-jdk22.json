@@ -1,21 +1,21 @@
 {
     "description": "Eclipse Temurin is a runtime provided by Eclipse Adoptium for general use across the Java ecosystem",
     "homepage": "https://adoptium.net",
-    "version": "8.0.402-6",
+    "version": "22.0.0-36",
     "license": "GPL-2.0-only WITH Classpath-exception-2.0",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/adoptium/temurin8-binaries/releases/download/jdk8u402-b06/OpenJDK8U-jdk_x64_windows_hotspot_8u402b06.zip",
-            "hash": "74b53da7dd086e4eeb09a4eafef9864f292cd7975c5af36bbf47a673ec7760ae"
+            "url": "https://github.com/adoptium/temurin22-binaries/releases/download/jdk-22+36/OpenJDK22U-jdk_x64_windows_hotspot_22_36.zip",
+            "hash": "0aed4b85b94ced6740f312b873f574f519a4eda4015739cbbbd7c6356a59f289"
         }
     },
-    "extract_dir": "jdk8u402-b06",
+    "extract_dir": "jdk-22+36",
     "env_add_path": "bin",
     "env_set": {
         "JAVA_HOME": "$dir"
     },
     "checkver": {
-        "url": "https://api.adoptium.net/v3/assets/feature_releases/8/ga?jvm_impl=hotspot&heap_size=normal&os=windows&architecture=x64&image_type=jdk&project=jdk&vendor=eclipse&page_size=1&sort_order=DESC",
+        "url": "https://api.adoptium.net/v3/assets/version/%5B8%2C%29?release_type=ga&jvm_impl=hotspot&heap_size=normal&os=windows&architecture=x64&image_type=jdk&project=jdk&vendor=eclipse&page_size=1&sort_order=DESC",
         "script": [
             "$ver = (json_path $page $..version_data.semver).replace('+', '-')",
             "$link = (json_path $page $..release_link).replace('%2B', '+')",

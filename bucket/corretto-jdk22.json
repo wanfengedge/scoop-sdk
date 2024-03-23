@@ -1,22 +1,22 @@
 {
     "description": "Amazon Corretto is a no-cost, multiplatform, production-ready distribution of the Open Java Development Kit (OpenJDK)",
     "homepage": "https://aws.amazon.com/corretto/",
-    "version": "21.0.2.13.1",
+    "version": "22.0.0.36.2",
     "license": "GPL-2.0-only WITH Classpath-exception-2.0",
     "architecture": {
         "64bit": {
-            "url": "https://corretto.aws/downloads/resources/21.0.2.13.1/amazon-corretto-21.0.2.13.1-windows-x64-jdk.zip",
-            "hash": "c48e4948708fee3bf17c7c871befe6bdf2c1099332a9af0ee38a94e6ef0a1070"
+            "url": "https://corretto.aws/downloads/resources/22.0.0.36.2/amazon-corretto-22.0.0.36.2-windows-x64-jdk.zip",
+            "hash": "26fca213130138b1062e88dfcaac2cf9d56c9fd6977cc12e35fa5ee9b8982b79"
         }
     },
-    "extract_dir": "jdk21.0.2_13",
+    "extract_dir": "jdk22.0.0_36",
     "env_add_path": "bin",
     "env_set": {
         "JAVA_HOME": "$dir"
     },
     "checkver": {
         "url": "https://github.com/corretto/corretto-downloads/raw/main/latest_links/indexmap_with_checksum.json",
-        "jsonpath": "$.windows.x64.jdk.21.zip.resource",
+        "jsonpath": "$.windows.x64.jdk.22.zip.resource",
         "regex": "/([\\d.]+)/"
     },
     "autoupdate": {
@@ -25,7 +25,7 @@
                 "url": "https://corretto.aws/downloads/resources/$version/amazon-corretto-$version-windows-x64-jdk.zip",
                 "hash": {
                     "url": "https://github.com/corretto/corretto-downloads/raw/main/latest_links/indexmap_with_checksum.json",
-                    "jsonpath": "$.windows.x64.jdk.21.zip.checksum_sha256"
+                    "jsonpath": "$.windows.x64.jdk.22.zip.checksum_sha256"
                 }
             }
         },
