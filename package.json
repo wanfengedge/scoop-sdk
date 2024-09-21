@@ -22,5 +22,8 @@
     },
     "main": "index.js",
     "author": "ivaquero",
-    "license": "ISC"
+    "license": "ISC",
+    "dependencies": {
+        "scoopet": "file:"
+    }
 }
