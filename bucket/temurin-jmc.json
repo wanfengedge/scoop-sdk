@@ -9,11 +9,11 @@
             "hash": "5a3dfc7772190e3a184e624fb0b3d0c4d4f0b3cce3b4effbbd8333c169583c32"
         }
     },
-    "extract_dir": "Eclipse Mission Control",
+    "extract_dir": "JDK Mission Control",
     "shortcuts": [
         [
             "jmc.exe",
-            "Eclipse Mission Control"
+            "JDK Mission Control"
         ]
     ],
     "persist": "configuration"
