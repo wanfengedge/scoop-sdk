@@ -5,7 +5,7 @@
     "license": "GPL-2.0-only WITH Classpath-exception-2.0",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/bell-sw/Liberica/releases/download/22.0.2%2B11/bellsoft-jdk22.0.2+11-windows-amd64-full.zip",
+            "url": "https://download.bell-sw.com/java/22.0.2+11/bellsoft-jdk22.0.2+11-windows-amd64-full.zip",
             "hash": "sha1:03e4974c40a12dd2d7c5a0973d2805f18507ef3c"
         }
     },
@@ -23,7 +23,7 @@
     "autoupdate": {
         "architecture": {
             "64bit": {
-                "url": "https://github.com/bell-sw/Liberica/releases/download/$matchMajor%2B$matchBuild/bellsoft-jdk$matchMajor%2B$matchBuild-windows-amd64-full.zip"
+                "url": "https://download.bell-sw.com/java/$matchMajoru$matchBuild/bellsoft-jdk$matchMajor%2B$matchBuild-windows-amd64-full.zip"
             }
         },
         "hash": {
