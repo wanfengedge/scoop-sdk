@@ -1,19 +1,19 @@
 {
     "description": "BellSoft Liberica is a 100% open-source Java 8 implementation",
     "homepage": "https://bell-sw.com/java",
-    "version": "8u372-7",
+    "version": "8u442+7",
     "license": "GPL-2.0-only WITH Classpath-exception-2.0",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/bell-sw/Liberica/releases/download/8u372%2B7/bellsoft-jdk8u372%2B7-windows-amd64-full.zip",
-            "hash": "sha1:42d2eb53dc9e381af90fd9fa0ec7f348cbae5bd4"
+            "url": "https://download.bell-sw.com/java/8u442+7/bellsoft-jdk8u442+7-windows-amd64-full.zip",
+            "hash": "sha1:cfb2f536ce037acf2e53d1acb42fc0e0db1b88cb"
         },
         "32bit": {
-            "url": "https://github.com/bell-sw/Liberica/releases/download/8u372%2B7/bellsoft-jdk8u372%2B7-windows-i586-full.zip",
-            "hash": "sha1:233af4a5609306bd2c6b8b15cb3cdd36fdaa0782"
+            "url": "https://download.bell-sw.com/java/8u442+7/bellsoft-jdk8u442+7-windows-i586-full.zip",
+            "hash": "sha1:05a392291aec66911b622e243b53a0b73f34f2bf"
         }
     },
-    "extract_dir": "jdk8u372-full",
+    "extract_dir": "jdk8u442-full",
     "env_add_path": "bin",
     "env_set": {
         "JAVA_HOME": "$dir"
@@ -27,10 +27,10 @@
     "autoupdate": {
         "architecture": {
             "64bit": {
-                "url": "https://github.com/bell-sw/Liberica/releases/download/$matchMajor%2B$matchBuild/bellsoft-jdk$matchMajor%2B$matchBuild-windows-amd64-full.zip"
+                "url": "https://download.bell-sw.com/java/$matchMajoru$matchBuild/bellsoft-jdk$matchMajor%2B$matchBuild-windows-amd64-full.zip"
             },
             "32bit": {
-                "url": "https://github.com/bell-sw/Liberica/releases/download/$matchMajor%2B$matchBuild/bellsoft-jdk$matchMajor%2B$matchBuild-windows-i586-full.zip"
+                "url": "https://download.bell-sw.com/java/$matchMajoru$matchBuild/bellsoft-jdk$matchMajor%2B$matchBuild-windows-i586-full.zip"
             }
         },
         "hash": {

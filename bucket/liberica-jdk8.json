@@ -1,19 +1,19 @@
 {
     "description": "BellSoft Liberica is a 100% open-source Java 8 implementation",
     "homepage": "https://bell-sw.com/java",
-    "version": "8u372-7",
+    "version": "8u442+7",
     "license": "GPL-2.0-only WITH Classpath-exception-2.0",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/bell-sw/Liberica/releases/download/8u372%2B7/bellsoft-jdk8u372%2B7-windows-amd64.zip",
-            "hash": "sha1:dc33eed7508e5d0fac48a96ae6a6ff341c94990a"
+            "url": "https://download.bell-sw.com/java/8u442+7/bellsoft-jdk8u442+7-windows-amd64.zip",
+            "hash": "sha1:1b006ce558fcb5520c1cf4c2d604cc1ddd10510e"
         },
         "32bit": {
-            "url": "https://github.com/bell-sw/Liberica/releases/download/8u372%2B7/bellsoft-jdk8u372%2B7-windows-i586.zip",
-            "hash": "sha1:b977a140f8e6cc9f0205af0bde1aaa70f602c233"
+            "url": "https://download.bell-sw.com/java/8u442+7/bellsoft-jdk8u442+7-windows-i586.zip",
+            "hash": "sha1:09c5af00c06691416135f7b8da56429a08de3838"
         }
     },
-    "extract_dir": "jdk8u372",
+    "extract_dir": "jdk8u442",
     "env_add_path": "bin",
     "env_set": {
         "JAVA_HOME": "$dir"
@@ -27,10 +27,10 @@
     "autoupdate": {
         "architecture": {
             "64bit": {
-                "url": "https://github.com/bell-sw/Liberica/releases/download/$matchMajor%2B$matchBuild/bellsoft-jdk$matchMajor%2B$matchBuild-windows-amd64.zip"
+                "url": "https://download.bell-sw.com/java/$matchMajoru$matchBuild/bellsoft-jdk$matchMajor%2B$matchBuild-windows-amd64.zip"
             },
             "32bit": {
-                "url": "https://github.com/bell-sw/Liberica/releases/download/$matchMajor%2B$matchBuild/bellsoft-jdk$matchMajor%2B$matchBuild-windows-i586.zip"
+                "url": "https://download.bell-sw.com/java/$matchMajoru$matchBuild/bellsoft-jdk$matchMajor%2B$matchBuild-windows-i586.zip"
             }
         },
         "hash": {
