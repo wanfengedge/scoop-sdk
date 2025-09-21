@@ -1,28 +1,37 @@
 {
-    "version": "9.1.1.35",
-    "description": "A build of JDK Mission Control, an open source Java runtime profiling and monitoring utility",
-    "homepage": "https://www.azul.com/products/components/zulu-mission-control/",
-    "license": "UPL-1.0",
+    "description": "Open Source Builds of Zulu With OpenJFX",
+    "homepage": "https://www.azul.com/products/zulu-community/zulufx/",
+    "version": "25.28.85",
+    "license": {
+        "identifier": "GPL-2.0-only WITH Classpath-exception-2.0",
+        "url": "https://www.azulsystems.com/license/zulu_third_party_licenses.html"
+    },
     "architecture": {
         "64bit": {
-            "url": "https://cdn.azul.com/zmc/bin/zmc9.1.1.35-ca-win_x64.zip",
-            "hash": "04143b91f0450c52c39b0a72dffb89284668568401dd45661f9f0024dbb9099a",
-            "extract_dir": "zmc9.1.1.35-ca-win_x64\\Azul Mission Control"
+            "url": "https://cdn.azul.com/zulu/bin/zulu25.28.85-ca-fx-jdk25.0.0-win_x64.zip",
+            "hash": "7e07113e4fab1110b38ad60e5c3c92b5ef29a1dc64203c681fa484939a70c77b",
+            "extract_dir": "zulu25.28.85-ca-fx-jdk25.0.0-win_x64"
         }
     },
-    "bin": "zmc.exe",
-    "shortcuts": [
-        [
-            "zmc.exe",
-            "Zulu Mission Control"
-        ]
-    ],
-    "checkver": "zmc([\\d.]+)-ca-win",
+    "env_add_path": "bin",
+    "env_set": {
+        "JAVA_HOME": "$dir"
+    },
+    "checkver": {
+        "url": "https://api.azul.com/metadata/v1/zulu/packages/?java_version=&os=windows&arch=x64&archive_type=zip&java_package_type=jdk&javafx_bundled=true&crac_supported=false&release_type=PSU&latest=true&include_fields=sha256_hash&page_size=1",
+        "jsonpath": "$..download_url",
+        "regex": "(?<name>zulu(?<version>[\\d.]+)-ca-fx-jdk(?<java>[\\d.]+)-win)_x64.zip",
+        "replace": "${version}"
+    },
     "autoupdate": {
         "architecture": {
             "64bit": {
-                "url": "https://cdn.azul.com/zmc/bin/zmc$version-ca-win_x64.zip",
-                "extract_dir": "zmc$version-ca-win_x64\\Azul Mission Control"
+                "url": "https://cdn.azul.com/zulu/bin/$matchName_x64.zip",
+                "extract_dir": "$matchName_x64",
+                "hash": {
+                    "url": "https://api.azul.com/metadata/v1/zulu/packages/?java_version=&os=windows&arch=x64&archive_type=zip&java_package_type=jdk&javafx_bundled=true&crac_supported=false&release_type=PSU&latest=true&include_fields=sha256_hash&page_size=1",
+                    "jp": "$..sha256_hash"
+                }
             }
         }
     }
