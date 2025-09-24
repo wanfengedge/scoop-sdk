@@ -207,3 +207,10 @@ scoop bucket add scoop-sdk https://github.com/wanfengedge/scoop-sdk
 scoop update
 ```
 
+## 批量删除 JDK
+```powershell
+scoop list | grep jdk | ForEach-Object { 
+    $pkg = ($_ -split '\s+')[0]
+    scoop uninstall $pkg
+}
+```
