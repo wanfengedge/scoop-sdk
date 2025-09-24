@@ -209,8 +209,10 @@ scoop update
 
 ## 批量删除 JDK
 ```powershell
-scoop list | grep jdk | ForEach-Object { 
-    $pkg = ($_ -split '\s+')[0]
-    scoop uninstall $pkg
+scoop list | Select-String 'jdk' | ForEach-Object {
+    $name = ($_ -split '\s+')[0]
+    if ($name -and $name -ne '已安装应用:') {
+        scoop uninstall $name
+    }
 }
 ```
