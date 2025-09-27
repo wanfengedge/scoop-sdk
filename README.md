@@ -209,24 +209,158 @@ scoop update
 
 ## 批量删除 JDK
 
-批量删除所有JDK
+### 诊断当前安装的JDK（推荐使用）
 ```powershell
-scoop list | Select-String 'jdk' | ForEach-Object {
-    $name = ($_ -split '\s+')[0]
-    if ($name -and $name -ne '已安装应用:') {
-        scoop uninstall $name
+Write-Host "=== 当前安装的JDK列表 ===" -ForegroundColor Cyan
+
+# 方法1：直接解析对象格式输出（适用于新版scoop）
+$jdkApps = scoop list | Where-Object { $_ -like '*jdk*' -and $_ -notlike '*Installed apps:*' }
+if ($jdkApps.Count -eq 0) {
+    Write-Host "未找到任何JDK安装" -ForegroundColor Yellow
+} else {
+    foreach ($app in $jdkApps) {
+        # 提取应用名称（从对象格式中提取）
+        if ($app -match 'Name=([^;]+)') {
+            $name = $matches[1]
+            Write-Host "- $name" -ForegroundColor White
+        }
     }
 }
-```
-批量删除指定厂商的JDK
-```powershell
-scoop list | Select-String 'jdk' | ForEach-Object {
-    $name = ($_ -split '\s+')[0]
-    if ($name -and $name -ne '已安装应用:') {
-        if ($name -like '*zulu*' -or $name -like '*temurin*') {
-            scoop uninstall $name
+
+Write-Host "`n=== 使用scoop list的文本格式输出 ===" -ForegroundColor Cyan
+# 方法2：使用文本格式输出（适用于旧版scoop）
+scoop list | Out-String -Stream | Select-String 'jdk' | ForEach-Object {
+    $line = $_.ToString().Trim()
+    if ($line -and $line -notlike '*Installed apps:*' -and $line -notlike '*Name*Version*Source*') {
+        $name = ($line -split '\s+')[0]
+        if ($name -and $name -like '*jdk*') {
+            Write-Host "- $name" -ForegroundColor Green
         }
     }
 }
 ```
+
+### 批量删除所有JDK（推荐使用）
+```powershell
+Write-Host "开始卸载JDK..." -ForegroundColor Yellow
+
+# 获取所有JDK应用
+$jdkApps = scoop list | Where-Object { $_ -like '*jdk*' -and $_ -notlike '*Installed apps:*' }
+
+if ($jdkApps.Count -eq 0) {
+    Write-Host "未找到任何JDK安装" -ForegroundColor Yellow
+    exit 0
+}
+
+foreach ($app in $jdkApps) {
+    # 提取应用名称
+    if ($app -match 'Name=([^;]+)') {
+        $name = $matches[1]
+        Write-Host "正在卸载: $name" -ForegroundColor Yellow
+        
+        # 卸载应用
+        scoop uninstall $name
+        
+        if ($LASTEXITCODE -eq 0) {
+            Write-Host "✓ $name 卸载成功" -ForegroundColor Green
+        } else {
+            Write-Host "✗ $name 卸载失败" -ForegroundColor Red
+        }
+    }
+}
+
+Write-Host "JDK卸载完成！" -ForegroundColor Green
+```
+
+### 批量删除指定厂商的JDK
+```powershell
+Write-Host "开始卸载指定厂商的JDK..." -ForegroundColor Yellow
+
+# 支持的JDK厂商列表
+$supportedVendors = @('corretto', 'liberica', 'temurin', 'zulu', 'zulufx', 'microsoft', 'oracle')
+
+# 获取所有JDK应用
+$jdkApps = scoop list | Where-Object { $_ -like '*jdk*' -and $_ -notlike '*Installed apps:*' }
+
+if ($jdkApps.Count -eq 0) {
+    Write-Host "未找到任何JDK安装" -ForegroundColor Yellow
+    exit 0
+}
+
+foreach ($app in $jdkApps) {
+    # 提取应用名称
+    if ($app -match 'Name=([^;]+)') {
+        $name = $matches[1]
+        
+        # 检查是否是支持的厂商
+        $isSupportedVendor = $false
+        foreach ($vendor in $supportedVendors) {
+            if ($name -like "*$vendor*") {
+                $isSupportedVendor = $true
+                break
+            }
+        }
+        
+        if ($isSupportedVendor) {
+            Write-Host "正在卸载: $name" -ForegroundColor Yellow
+            scoop uninstall $name
+            
+            if ($LASTEXITCODE -eq 0) {
+                Write-Host "✓ $name 卸载成功" -ForegroundColor Green
+            } else {
+                Write-Host "✗ $name 卸载失败" -ForegroundColor Red
+            }
+        } else {
+            Write-Host "跳过: $name (不支持的厂商)" -ForegroundColor Gray
+        }
+    }
+}
+
+Write-Host "指定厂商JDK卸载完成！" -ForegroundColor Green
+```
+
+## 使用独立的PowerShell脚本文件
+
+为了方便使用，我们提供了独立的PowerShell脚本文件，位于 `bin` 目录下：
+
+### 1. 诊断JDK脚本
+```powershell
+# 运行诊断脚本
+.\bin\diagnose-jdk.ps1
+```
+
+### 2. 卸载所有JDK脚本
+```powershell
+# 运行卸载所有JDK脚本
+.\bin\uninstall-all-jdk.ps1
+```
+
+### 3. 按厂商卸载JDK脚本
+```powershell
+# 卸载指定厂商的JDK
+.\bin\uninstall-jdk-by-vendor.ps1 -Vendors "corretto,temurin"
+
+# 卸载所有厂商的JDK
+.\bin\uninstall-jdk-by-vendor.ps1 -Vendors "all"
+```
+
+### 4. JDK管理主脚本（推荐）
+```powershell
+# 诊断已安装的JDK
+.\bin\jdk-manager.ps1 -Action diagnose
+
+# 卸载所有JDK
+.\bin\jdk-manager.ps1 -Action uninstall-all
+
+# 按厂商卸载JDK
+.\bin\jdk-manager.ps1 -Action uninstall-vendor -Vendors "corretto,temurin"
+```
+
+### 脚本文件说明
+- `diagnose-jdk.ps1` - 诊断当前安装的JDK版本
+- `uninstall-all-jdk.ps1` - 批量卸载所有JDK版本
+- `uninstall-jdk-by-vendor.ps1` - 按厂商卸载JDK版本
+- `jdk-manager.ps1` - JDK管理主脚本，统一管理所有功能
+
+所有脚本都支持新版scoop的对象格式输出，并提供了详细的执行反馈。
 
