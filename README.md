@@ -208,6 +208,8 @@ scoop update
 ```
 
 ## 批量删除 JDK
+
+批量删除所有JDK
 ```powershell
 scoop list | Select-String 'jdk' | ForEach-Object {
     $name = ($_ -split '\s+')[0]
@@ -216,3 +218,15 @@ scoop list | Select-String 'jdk' | ForEach-Object {
     }
 }
 ```
+批量删除指定厂商的JDK
+```powershell
+scoop list | Select-String 'jdk' | ForEach-Object {
+    $name = ($_ -split '\s+')[0]
+    if ($name -and $name -ne '已安装应用:') {
+        if ($name -like '*zulu*' -or $name -like '*temurin*') {
+            scoop uninstall $name
+        }
+    }
+}
+```
+
