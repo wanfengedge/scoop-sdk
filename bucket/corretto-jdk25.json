@@ -29,6 +29,6 @@
                 }
             }
         },
-        "extract_dir": "jdk$matchHead_$buildVersion"
+        "extract_dir": "jdk$matchHead_$matchBuild"
     }
 }
