@@ -173,6 +173,11 @@ scoop bucket rm <Bucket名称>
 ```
 
 ### 推荐 Bucket
+
+官方主 Bucket: https://github.com/ScoopInstaller/Main
+版本管理 Bucket: https://github.com/ScoopInstaller/Versions
+额外软件源 Bucket: https://github.com/ScoopInstaller/Extras 
+
 ```powershell
 # 官方额外软件源
 scoop bucket add extras
