@@ -1,5 +1,5 @@
 {
-    "version": "11.0.12",
+    "version": "11.0.13",
     "description": "Implementation of the Java Servlet, JavaServer Pages, Java Expression Language and Java WebSocket technologies",
     "homepage": "https://tomcat.apache.org",
     "license": "Apache-2.0",
@@ -8,11 +8,11 @@
     },
     "architecture": {
         "64bit": {
-            "url": "https://dlcdn.apache.org/tomcat/tomcat-11/v11.0.12/bin/apache-tomcat-11.0.12-windows-x64.zip",
-            "hash": "sha512:24e2348c1c8d63ada1bbdd0c174dd7dfa6b704d04ba9c13222ef5275c48214b99f5d9794f8ce78217109c8105d785d7dfd549f7878516de68d9dfd46ec89d0b6"
+            "url": "https://dlcdn.apache.org/tomcat/tomcat-11/v11.0.13/bin/apache-tomcat-11.0.13-windows-x64.zip",
+            "hash": "sha512:bfe75f85b0f49d5f9d77c94c31c46777b6d0e7db11dd4fe91a63568795e701d09218168586654c3e53c9b3a3207a126111d1a696886da95a9974df37a23d1c67"
         }
     },
-    "extract_dir": "apache-tomcat-11.0.12",
+    "extract_dir": "apache-tomcat-11.0.13",
     "bin": "bin\\catalina.bat",
     "env_set": {
         "CATALINA_HOME": "$dir",
