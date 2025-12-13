@@ -1,12 +1,12 @@
 {
     "description": "Alibaba Dragonwell, a downstream version of OpenJDK, is the in-house OpenJDK implementation at Alibaba (with extensive custom features optimized for cloud computing environments)",
-    "version": "11.0.28.25-11.0.28",
+    "version": "11.0.20.16-11.0.20",
     "homepage": "https://dragonwell-jdk.io/",
     "license": "GPL-2.0-only WITH Classpath-exception-2.0",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/dragonwell-project/dragonwell11/releases/download/dragonwell-extended-11.0.28.25_jdk-11.0.28-ga/Alibaba_Dragonwell_Extended_11.0.28.25.6_x64_windows.zip",
-            "hash": "f1d87a77d6eea9531a79d8c30b52b1ec8b5c71aa1c76f450f6beba8ebe3b58aa"
+            "url": "https://github.com/dragonwell-project/dragonwell11/releases/download/dragonwell-extended-11.0.20.16_jdk-11.0.20-ga/Alibaba_Dragonwell_Extended_11.0.20.16.8_x64_windows.zip",
+            "hash": "33f7b5d83b417acf88c70125a3a12042521dae3e910a1b0f5773fa4c20b5df62"
         }
     },
     "extract_to": "tmp",
