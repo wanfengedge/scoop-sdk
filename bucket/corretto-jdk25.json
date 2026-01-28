@@ -9,7 +9,7 @@
             "hash": "ee94067183891ae5ae1f4771ea715f1114333ebf64f61e3ad1b34a38eed65dfc"
         }
     },
-    "extract_dir": "jdk25.0.2_$matchBuild",
+    "extract_dir": "jdk25.0.2_10",
     "env_add_path": "bin",
     "env_set": {
         "JAVA_HOME": "$dir"
@@ -17,7 +17,7 @@
     "checkver": {
         "url": "https://github.com/corretto/corretto-downloads/raw/main/latest_links/indexmap_with_checksum.json",
         "jsonpath": "$.windows.x64.jdk.25.zip.resource",
-        "regex": "/([\\d.]+)/"
+        "regex": "resources/((?<Head>[\\d.]+)\\.(?<Build>\\d+)\\.\\d+)/"
     },
     "autoupdate": {
         "architecture": {
